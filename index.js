@@ -12,6 +12,7 @@ app.get('/download',async(req,res) => {
 
  app.get('/',async(req,res) => {
 //console.log(daydata.length);
+res.send("Welcome to the backend")
 console.log('abc')
   
   });
