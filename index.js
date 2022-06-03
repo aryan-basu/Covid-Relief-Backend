@@ -1,19 +1,43 @@
 const express = require("express");
 const app=express();
+const firebase=require("firebase");
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
+const axios = require('axios');
 
-app.get('/download',async(req,res) => {
+const config = {
+  apiKey: "AIzaSyBv7tylwD4VmHhXnbH0QVAxfV4xpYI-Slg",
+  authDomain: "covid-relief-3a4ad.firebaseapp.com",
+  databaseURL: "https://covid-relief-3a4ad-default-rtdb.firebaseio.com",
+  projectId: "covid-relief-3a4ad",
+  storageBucket: "covid-relief-3a4ad.appspot.com",
+  messagingSenderId: "267147448708",
+  appId: "1:267147448708:web:ed99ad0e6e308a8f2dcdd1",
+  measurementId: "G-Q0R9RM82NF"
+};
+
+// Initialize Firebase
+firebase.initializeApp(config);
+
+app.get('/',async(req,res)=>{
+  res.send("Welcome to the backend")
  
-    createInvoice(res)
-    
+})
 
-    });
-
- app.get('/',async(req,res) => {
+ app.get('/download',async(req,res) => {
 //console.log(daydata.length);
-res.send("Welcome to the backend")
-console.log('abc')
+firebase.database().ref('/data').on('value', (snapshot) => {
+  // console.log(snapshot.val())
+  const address=snapshot.val().Address[0];
+  const name=snapshot.val().Name
+  
+createInvoice(res,name,address)
+ // tempgenralinfo.push(snapshot.val());
+ // console.log(tempdata[0][0].Dish);
+})
+
+
+
   
   });
     const PORT=process.env.PORT||8000
@@ -49,7 +73,7 @@ app.listen(PORT,()=>{
   console.log(`listening to the port number at ${PORT}`);
 })
 
-function  createInvoice(res) {
+function  createInvoice(res,name,address) {
 const doc = new PDFDocument({
   layout: 'landscape',
   size: 'A4',
@@ -129,7 +153,7 @@ doc
   .font('fonts/NotoSansJP-Bold.otf')
   .fontSize(24)
   .fill('#021c27')
-  .text('Aryan', {
+  .text(`${name}`, {
     align: 'center',
   });
 
@@ -139,7 +163,7 @@ doc
   .font('fonts/NotoSansJP-Light.otf')
   .fontSize(10)
   .fill('#021c27')
-  .text('Successfully completed the Super Course for Awesomes.', {
+  .text(`${address}`, {
     align: 'center',
   });
 
