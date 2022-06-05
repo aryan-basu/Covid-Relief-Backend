@@ -111,7 +111,7 @@ doc
 const maxWidth = 140;
 const maxHeight = 70;
 
-doc.image('assets/winners.png', doc.page.width / 2 - maxWidth / 2, 60, {
+doc.image('assets/heart.png', doc.page.width / 2 - maxWidth / 2, 60, {
   fit: [maxWidth, maxHeight],
   align: 'center',
 });
@@ -122,7 +122,7 @@ doc
   .font('fonts/NotoSansJP-Light.otf')
   .fontSize(10)
   .fill('#021c27')
-  .text('Super Course for Awesomes', {
+  .text('COVID RELIEF', {
     align: 'center',
   });
 
@@ -225,7 +225,7 @@ doc
   .font('fonts/NotoSansJP-Light.otf')
   .fontSize(10)
   .fill('#021c27')
-  .text('Associate Professor', startLine1, signatureHeight + 25, {
+  .text('Director', startLine1, signatureHeight + 25, {
     columns: 1,
     columnGap: 0,
     height: 40,
@@ -261,7 +261,7 @@ doc
   .font('fonts/NotoSansJP-Bold.otf')
   .fontSize(10)
   .fill('#021c27')
-  .text('Aryan basu', startLine3, signatureHeight + 10, {
+  .text('Aryan Sharma', startLine3, signatureHeight + 10, {
     columns: 1,
     columnGap: 0,
     height: 40,
@@ -273,7 +273,7 @@ doc
   .font('fonts/NotoSansJP-Light.otf')
   .fontSize(10)
   .fill('#021c27')
-  .text('Director', startLine3, signatureHeight + 25, {
+  .text('Student', startLine3, signatureHeight + 25, {
     columns: 1,
     columnGap: 0,
     height: 40,
@@ -306,7 +306,7 @@ doc
     link,
   );
 
-doc
+/*doc
   .font('fonts/NotoSansJP-Light.otf')
   .fontSize(10)
   .fill('#021c27')
@@ -317,11 +317,11 @@ doc
     linkWidth,
     linkHeight
   );
-
+*/
 // Footer
 const bottomHeight = doc.page.height - 100;
 
-doc.image('assets/qr.png', doc.page.width / 2 - 30, bottomHeight, {
+doc.image('assets/seal.png', doc.page.width / 2 - 30, bottomHeight, {
   fit: [60, 60],
 });
 
