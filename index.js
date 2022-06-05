@@ -96,7 +96,7 @@ doc.fontSize(10);
 const distanceMargin = 18;
 
 doc
-  .fillAndStroke('#0e8cc3')
+  .fillAndStroke('#FF0000')
   .lineWidth(20)
   .lineJoin('round')
   .rect(
@@ -133,7 +133,7 @@ doc
   .font('fonts/NotoSansJP-Regular.otf')
   .fontSize(16)
   .fill('#021c27')
-  .text('CERTIFICATE OF COMPLETION', {
+  .text('CERTIFICATE OF APPRECIATION', {
     align: 'center',
   });
 
@@ -147,8 +147,9 @@ doc
     align: 'center',
   });
 
-jumpLine(doc, 2)
 
+
+jumpLine(doc, 1)
 doc
   .font('fonts/NotoSansJP-Bold.otf')
   .fontSize(24)
@@ -156,8 +157,7 @@ doc
   .text(`${name}`, {
     align: 'center',
   });
-
-jumpLine(doc, 1)
+  jumpLine(doc, 1)
 
 doc
   .font('fonts/NotoSansJP-Light.otf')
@@ -166,6 +166,16 @@ doc
   .text(`${address}`, {
     align: 'center',
   });
+  jumpLine(doc, 1)
+
+  doc
+    .font('fonts/NotoSansJP-Light.otf')
+    .fontSize(14)
+    .fill('#021c27')
+    .text('In Recognition of your donation to help the victims of the Covid-19 ', {
+      align: 'center',
+    });
+
 
 jumpLine(doc, 7)
 
